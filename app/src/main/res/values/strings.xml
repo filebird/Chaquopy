@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Call Python</string>
+    <string name="hello_app">Hello Python</string>
+</resources>

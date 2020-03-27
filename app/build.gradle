@@ -1,0 +1,68 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.chaquo.python'
+
+android {
+    compileSdkVersion rootProject.ext.versionCompiler
+    defaultConfig {
+        applicationId "com.xiangxun.vane"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.versionTarget
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionNameString
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            moduleName "detection_based_tracker"//指定生成的so文件名
+            abiFilters "armeabi-v7a", "x86"//cpu的类型
+        }
+
+        python {
+            buildPython "E:/Program Files/Python36/python.exe"
+            buildPython "py -3.6"
+            pyc {
+                src false
+            }
+
+            pip {
+                install "e:/python/numpy-1.17.4-3-cp38-cp38-android_16_armeabi_v7a.whl"
+                install "e:/python/matplotlib-3.1.2-1-cp38-cp38-android_16_armeabi_v7a.whl"
+                install "e:/python/opencv_python-4.1.2.30-1-cp38-cp38-android_16_armeabi_v7a.whl"
+                install "e:/python/pandas-0.25.3-1-cp38-cp38-android_16_armeabi_v7a.whl"
+                install "e:/python/chaquopy_openblas-0.2.20-5-py3-none-android_16_armeabi_v7a.whl"
+                install "e:/python/chaquopy_freetype-2.9.1-1-py3-none-android_16_armeabi_v7a.whl"
+                install "e:/python/python_dateutil-2.8.1-py2.py3-none-any.whl"
+//无需加载的库
+//                install "math"
+//                install "copy"
+
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    // solving com.android.tools.r8.CompilationFailedException: Compilation failed to complete
+    compileOptions {
+        sourceCompatibility rootProject.ext.javaSourceCompatibility
+        targetCompatibility rootProject.ext.javaTargetCompatibility
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to checkforerrorsinrelease builds,
+        // but continue the build even whenerrorsarefound:
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "com.android.support:appcompat-v7:${supportLibVersion}"
+    implementation "com.android.support:support-annotations:${supportLibVersion}"
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation project(':libusbcamera')
+}

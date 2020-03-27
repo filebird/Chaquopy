@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white" >
+
+    <FrameLayout
+        android:id="@+id/show_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/black">
+
+        <com.serenegiant.usb.widget.UVCCameraTextureView
+            android:id="@+id/camera_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+
+        <!--    浏览窗口-->
+        <RelativeLayout
+            android:layout_width="240dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="2dp"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_setResolu"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_alignParentLeft="true"
+                android:layout_margin="@dimen/margin_padding10"
+                android:background="@mipmap/blue_btn_normal"
+                android:text="分辨率"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textSize16" />
+
+            <Button
+                android:id="@+id/btn_foucs"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_margin="@dimen/margin_padding10"
+                android:background="@mipmap/blue_btn_normal"
+                android:text="对焦"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textSize16" />
+            <View
+                android:id="@+id/ll_0"
+                android:layout_below="@+id/btn_setResolu"
+                style="@style/full_line_seperator"
+                android:layout_marginTop="@dimen/margin_padding10" />
+            <!--    亮度-->
+            <LinearLayout
+                android:id="@+id/llayout_brightness"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/ll_0"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingBottom="7dp"
+                    android:paddingTop="7dp"
+                    android:text="亮度"
+                    android:textSize="@dimen/font_size_16"
+                    android:textColor="@color/black" />
+
+                <SeekBar
+                    android:id="@+id/seekbar_brightness"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="3" />
+            </LinearLayout>
+            <!--    对比度-->
+            <LinearLayout
+                android:id="@+id/llayout_contrast"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/llayout_brightness"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingBottom="7dp"
+                    android:paddingTop="7dp"
+                    android:text="对比度"
+                    android:textSize="@dimen/font_size_16"
+                    android:textColor="@color/black" />
+
+                <SeekBar
+                    android:id="@+id/seekbar_contrast"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="3" />
+            </LinearLayout>
+            <!--    声音开关-->
+            <Switch
+                android:visibility="gone"
+                android:id="@+id/switch_rec_voice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/llayout_brightness"
+                android:layout_alignStart="@+id/llayout_brightness"
+                android:layout_below="@+id/toolbar"
+                android:layout_marginLeft="13dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="27dp"
+                android:checked="true"
+                android:text="closeVoice"
+                android:textColor="@color/colorWhite" />
+            <View
+                android:id="@+id/ll_one"
+                android:layout_below="@+id/llayout_contrast"
+                style="@style/full_line_seperator"
+                android:layout_marginTop="@dimen/margin_padding10" />
+            <Button
+                android:id="@+id/btn_takePic"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_below="@+id/ll_one"
+                android:layout_alignParentLeft="true"
+                android:layout_margin="@dimen/margin_padding10"
+                android:background="@mipmap/blue_btn_normal"
+                android:text="拍照"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textSize16" />
+
+            <Button
+                android:id="@+id/btn_record"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_below="@+id/ll_one"
+                android:layout_alignParentRight="true"
+                android:layout_margin="@dimen/margin_padding10"
+                android:background="@mipmap/blue_btn_normal"
+                android:text="录像"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textSize16" />
+
+            <View
+                android:id="@+id/ll_2"
+                android:layout_below="@+id/btn_record"
+                style="@style/full_line_seperator"
+                android:layout_marginTop="@dimen/margin_padding10" />
+            <TextView
+                android:id="@+id/vane_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_2"
+                android:layout_marginTop="@dimen/margin_padding10"
+                android:textSize="@dimen/font_size_16"
+                android:text="四川美姑 1"
+                android:textColor="@color/black" />
+
+            <View
+                android:id="@+id/ll_3"
+                android:layout_below="@+id/vane_info"
+                style="@style/full_line_seperator"
+                android:layout_marginTop="@dimen/margin_padding10" />
+
+            <Button
+                android:id="@+id/btn_adjust"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_below="@+id/ll_3"
+                android:layout_alignParentStart="true"
+                android:layout_margin="@dimen/margin_padding10"
+                android:background="@mipmap/blue_btn_normal"
+                android:text="校正"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textSize16" />
+
+            <Button
+                android:id="@+id/btn_check"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_below="@+id/ll_3"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="@dimen/margin_padding10"
+                android:background="@mipmap/blue_btn_normal"
+                android:text="校验"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textSize16" />
+        </RelativeLayout>
+    </FrameLayout>
+</LinearLayout>
