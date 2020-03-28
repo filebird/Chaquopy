@@ -23,17 +23,20 @@ android {
             pip {
 	    	//PIP installation of third-party libraries
 //	    	install "numpy"
+
 		//PIP installs third-party libraries, often with problems. 
 		//You can download it to your local directory and install it in this way.
                 install "e:/python/numpy-1.17.4-3-cp38-cp38-android_16_armeabi_v7a.whl"
                 install "e:/python/matplotlib-3.1.2-1-cp38-cp38-android_16_armeabi_v7a.whl"
                 install "e:/python/opencv_python-4.1.2.30-1-cp38-cp38-android_16_armeabi_v7a.whl"
                 install "e:/python/pandas-0.25.3-1-cp38-cp38-android_16_armeabi_v7a.whl"
+		
 		//Chaquopy will automatically download some things.
 		//If there is a problem, you can check the log, download and add by yourself.
                 install "e:/python/chaquopy_openblas-0.2.20-5-py3-none-android_16_armeabi_v7a.whl"
                 install "e:/python/chaquopy_freetype-2.9.1-1-py3-none-android_16_armeabi_v7a.whl"
                 install "e:/python/python_dateutil-2.8.1-py2.py3-none-any.whl"
+		
                 //no need install lib.
 //              install "math"
 //              install "copy"
