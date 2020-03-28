@@ -4,17 +4,19 @@ GoldWindVane is developed AndroidUSBCamera based on the [jiangdongguo/AndroidUSB
 
 Use chaquopy to call python. You can refer to this code, write your own external camera video analysis application.Python writing analysis algorithm。
 
-====================================================================================
+===============================
 What to pay attention to:
-====================================================================================
+===============================
 build.gradle(app)
 
 android {
     .........
 
         python {
-            buildPython "E:/Program Files/Python36/python.exe"			//Your Python installation directory
-            buildPython "py -3.6"						//Your Python installation version
+            //Your Python installation directory
+            buildPython "E:/Program Files/Python36/python.exe"
+            //Your Python installation version
+            buildPython "py -3.6"						
             pyc {
                 src false
             }
